@@ -1,0 +1,19 @@
+{
+  "name": "frontend-mentor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itschiaming/frontend-mentor.git"
+  },
+  "author": "CHIA MING YEH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itschiaming/frontend-mentor/issues"
+  },
+  "homepage": "https://github.com/itschiaming/frontend-mentor#readme"
+}
