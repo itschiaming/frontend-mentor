@@ -12,8 +12,9 @@ body {
   font-family: "Kumbh Sans", sans-serif;
   font-size: 12px;
   width: min(350px, 80vw);
-  margin: 10rem auto;
+  margin: 4rem auto;
   height: 100vh;
+
   background-image: linear-gradient(
     180deg,
     hsl(273, 75%, 66%),

@@ -13,11 +13,14 @@ body {
   font-size: 13px;
   background-color: hsl(225, 100%, 94%);
   overflow-y: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
   width: min(360px, 90vw);
-  margin: 2rem auto;
   background-color: white;
   border-radius: 10px 10px 0 0;
 }
