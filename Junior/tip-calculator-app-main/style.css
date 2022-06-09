@@ -1,0 +1,140 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+  background-color: hsl(185, 41%, 84%);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.container {
+  margin: auto;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 1em;
+  color: hsl(186, 14%, 43%);
+  letter-spacing: 10px;
+}
+
+.main {
+  width: min(100vw, 400px);
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  color: hsl(184, 14%, 56%);
+  margin-bottom: 1em;
+}
+
+input {
+  padding: 1em;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  background-color: hsl(189, 41%, 97%);
+  font-family: "Space Mono", monospace;
+}
+
+.tip-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.tip-list button {
+  font-family: "Space Mono", monospace;
+  font-size: 20px;
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  padding: 0.5em 1.5em;
+  border: none;
+  border-radius: 10px;
+}
+
+.tip-list button:hover,
+.tip-button.tip-active {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+
+.tip-list button:last-child {
+  font-family: "Space Mono", monospace;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(186, 14%, 43%);
+  font-weight: 700;
+}
+
+.summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: hsl(183, 100%, 15%);
+  padding: 1rem;
+  color: white;
+  border-radius: 10px;
+}
+
+.perPerson {
+  font-size: 16px;
+  opacity: 0.75;
+  color: hsl(189, 41%, 97%);
+}
+
+.summary button {
+  font-family: "Space Mono", monospace;
+  font-size: 20px;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+}
+
+.tip-amount,
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 1000px) {
+  .main {
+    width: 70vw;
+    display: grid;
+    grid-template-areas:
+      "bill summary"
+      "tip summary"
+      "people summary";
+  }
+
+  .bill {
+    grid-area: bill;
+  }
+
+  .select-tip {
+    grid-area: tip;
+  }
+
+  .number-ofpeople {
+    grid-area: people;
+  }
+
+  .summary {
+    grid-area: summary;
+    justify-content: space-between;
+  }
+}

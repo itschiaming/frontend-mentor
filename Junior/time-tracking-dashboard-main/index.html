@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="avatar-wrapper">
+        <div class="avatar">
+          <img src="./images/image-jeremy.png" />
+          <div>
+            <p>Report for</p>
+            <span>Jeremy Robson</span>
+          </div>
+        </div>
+        <div class="time">
+          <span class="daily">Daily</span>
+          <span class="weekly">Weekly</span>
+          <span class="monthly">Monthly</span>
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <div class="card card-1">
+          <div class="detail">
+            <div class="type">
+              <span>Work</span>
+              <img src="./images/icon-ellipsis.svg" />
+            </div>
+            <div class="duration">
+              <span class="work-hrs">32hrs</span>
+              <span class="work-last-hrs">Last Week - 36hrs</span>
+            </div>
+          </div>
+        </div>
+        <div class="card card-2">
+          <div class="detail">
+            <div class="type">
+              <span>Play</span>
+              <img src="./images/icon-ellipsis.svg" />
+            </div>
+            <div class="duration">
+              <span class="play-hrs">10hrs</span>
+              <span class="play-last-hrs">Last Week - 8hrs</span>
+            </div>
+          </div>
+        </div>
+        <div class="card card-3">
+          <div class="detail">
+            <div class="type">
+              <span>Study</span>
+              <img src="./images/icon-ellipsis.svg" />
+            </div>
+            <div class="duration">
+              <span class="study-hrs">4hrs</span>
+              <span class="study-last-hrs">Last Week - 7hrs</span>
+            </div>
+          </div>
+        </div>
+        <div class="card card-4">
+          <div class="detail">
+            <div class="type">
+              <span>Exercise</span>
+              <img src="./images/icon-ellipsis.svg" />
+            </div>
+            <div class="duration">
+              <span class="exercise-hrs">4hrs</span>
+              <span class="exercise-last-hrs">Last Week - 5hrs</span>
+            </div>
+          </div>
+        </div>
+        <div class="card card-5">
+          <div class="detail">
+            <div class="type">
+              <span>Social</span>
+              <img src="./images/icon-ellipsis.svg" />
+            </div>
+            <div class="duration">
+              <span class="social-hrs">5hrs</span>
+              <span class="social-last-hrs">Last Week - 10hrs</span>
+            </div>
+          </div>
+        </div>
+        <div class="card card-6">
+          <div class="detail">
+            <div class="type">
+              <span>Self Care</span>
+              <img src="./images/icon-ellipsis.svg" />
+            </div>
+            <div class="duration">
+              <span class="self-care-hrs">2hrs</span>
+              <span class="self-care-last-hrs">Last Week - 2hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const daily = document.querySelector(".daily");
+    const weekly = document.querySelector(".weekly");
+    const monthly = document.querySelector(".monthly");
+    const workHrs = document.querySelector(".work-hrs");
+    const workLastHrs = document.querySelector(".work-last-hrs");
+    const playHrs = document.querySelector(".play-hrs");
+    const playLastHrs = document.querySelector(".play-last-hrs");
+    const studyHrs = document.querySelector(".study-hrs");
+    const studyLastHrs = document.querySelector(".study-last-hrs");
+    const exerciseHrs = document.querySelector(".exercise-hrs");
+    const exerciseLastHrs = document.querySelector(".exercise-last-hrs");
+    const socialHrs = document.querySelector(".social-hrs");
+    const socialLastHrs = document.querySelector(".social-last-hrs");
+    const selfCareHrs = document.querySelector(".self-care-hrs");
+    const selfCareLastHrs = document.querySelector(".self-care-last-hrs");
+
+    daily.addEventListener("click", () => {
+      daily.classList.toggle("active");
+      weekly.classList.remove("active");
+      monthly.classList.remove("active");
+      workHrs.textContent = "32hrs";
+      workLastHrs.textContent = "Last Week - 7hrs";
+      playHrs.textContent = "1rs";
+      playLastHrs.textContent = "Last Week - 2hrs";
+      studyHrs.textContent = "0hrs";
+      studyLastHrs.textContent = "Last Week - 1hrs";
+      exerciseHrs.textContent = "1hrs";
+      exerciseLastHrs.textContent = "Last Week - 1hrs";
+      socialHrs.textContent = "1hrs";
+      socialLastHrs.textContent = "Last Week - 3hrs";
+      selfCareHrs.textContent = "0hrs";
+      selfCareLastHrs.textContent = "Last Week - 1hrs";
+    });
+
+    weekly.addEventListener("click", () => {
+      weekly.classList.toggle("active");
+      daily.classList.remove("active");
+      monthly.classList.remove("active");
+      workHrs.textContent = "36hrs";
+      workLastHrs.textContent = "Last Week - 103hrs";
+      playHrs.textContent = "10rs";
+      playLastHrs.textContent = "Last Week - 8hrs";
+      studyHrs.textContent = "4hrs";
+      studyLastHrs.textContent = "Last Week - 7hrs";
+      exerciseHrs.textContent = "4hrs";
+      exerciseLastHrs.textContent = "Last Week - 5hrs";
+      socialHrs.textContent = "5hrs";
+      socialLastHrs.textContent = "Last Week - 10hrs";
+      selfCareHrs.textContent = "2hrs";
+      selfCareLastHrs.textContent = "Last Week - 2hrs";
+    });
+
+    monthly.addEventListener("click", () => {
+      monthly.classList.toggle("active");
+      weekly.classList.remove("active");
+      daily.classList.remove("active");
+      workHrs.textContent = "103hrs";
+      workLastHrs.textContent = "Last Week - 128hrs";
+      playHrs.textContent = "23rs";
+      playLastHrs.textContent = "Last Week - 29hrs";
+      studyHrs.textContent = "13hrs";
+      studyLastHrs.textContent = "Last Week - 19hrs";
+      exerciseHrs.textContent = "11hrs";
+      exerciseLastHrs.textContent = "Last Week - 18hrs";
+      socialHrs.textContent = "21hrs";
+      socialLastHrs.textContent = "Last Week - 23hrs";
+      selfCareHrs.textContent = "7hrs";
+      selfCareLastHrs.textContent = "Last Week - 11hrs";
+    });
+  </script>
+</html>

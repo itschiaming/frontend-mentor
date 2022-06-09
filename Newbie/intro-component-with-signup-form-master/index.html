@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <h1 class="title">Learn to code by watching others</h1>
+        <p class="text">
+          See how experienced developers solve problems in real-time. Watching
+          scripted tutorials is great, but understanding how developers think
+          isinvaluable.
+        </p>
+      </div>
+      <div class="right">
+        <div class="label">
+          <p>Try it free 7 days then $20/mo. thereafter</p>
+        </div>
+        <div class="form">
+          <input
+            placeholder="First Name"
+            type="text"
+            class="firstName"
+            oninput="firstNameHandler(this)"
+            onblur="firstNameHandler(this)"
+          />
+          <p class="error error-first">can not be empty</p>
+          <input
+            placeholder="Last Name"
+            type="text"
+            class="lastName"
+            oninput="lastNameHandler(this)"
+            onblur="lastNameHandler(this)"
+          />
+          <p class="error error-last">can not be empty</p>
+
+          <input
+            placeholder="Email Address"
+            type="email"
+            class="email"
+            oninput="emailHandler(this)"
+            onblur="emailHandler(this)"
+          />
+          <p class="error error-email-empty">can not be empty</p>
+          <p class="error error-email-invalid">
+            Looks like this is not an email
+          </p>
+
+          <input
+            placeholder="Password"
+            type="password"
+            class="password"
+            oninput="passwordHandler(this)"
+            onblur="passwordHandler(this)"
+          />
+          <p class="error error-password">can not be empty</p>
+
+          <button class="submit">Claim your free trial</button>
+          <p>
+            By clicking the button, you are agreeing to our
+            <span>Terms and Services</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const error = document.querySelectorAll(".error");
+
+    const textValidation = (e, error) => {
+      let text = e.value;
+      if (text.length > 0) {
+        error.classList.remove("visible");
+      } else {
+        error.classList.add("visible");
+      }
+    };
+
+    const emailValidation = (e, errorEmpty, errorInvalid) => {
+      let regex = new RegExp("[a-z0-9]+@[a-z]+\.[a-z]{2,3}");
+      let email = e.value;
+      if (email.length <= 0) {
+        errorEmpty.classList.add("visible");
+      } else {
+        errorEmpty.classList.remove("visible");
+      }
+
+      if (email.length > 0 && !regex.test(email)) {
+        errorInvalid.classList.add("visible");
+      } else {
+        errorInvalid.classList.remove("visible");
+      }
+    };
+
+    const firstNameHandler = (e) => {
+      const error = document.querySelector(".error-first");
+      textValidation(e, error);
+    };
+
+    const lastNameHandler = (e) => {
+      const error = document.querySelector(".error-last");
+      textValidation(e, error);
+    };
+
+    const passwordHandler = (e) => {
+      const error = document.querySelector(".error-password");
+      textValidation(e, error);
+    };
+
+    const emailHandler = (e) => {
+      const errorEmpty = document.querySelector(".error-email-empty");
+      const errorInvalid = document.querySelector(".error-email-invalid");
+
+      emailValidation(e, errorEmpty, errorInvalid);
+    };
+  </script>
+</html>

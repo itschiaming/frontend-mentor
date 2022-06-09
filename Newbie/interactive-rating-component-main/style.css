@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  font-size: 15px;
+  background-color: hsl(216, 12%, 8%);
+  color: hsl(0, 0%, 100%);
+  width: min(90vw, 350px);
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-wrapper,
+.thank-you {
+  background-color: hsl(213, 19%, 18%);
+  border-radius: 20px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.card__text > p {
+  color: hsl(217, 12%, 63%);
+}
+
+.card__rating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating {
+  background-color: hsl(216, 12%, 34%);
+  color: hsl(217, 12%, 73%);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.rating:hover {
+  background-color: hsl(216, 12%, 64%);
+  color: white;
+  font-weight: 700;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+input[type="radio"]:checked + .rating {
+  background-color: hsl(25, 97%, 53%);
+  color: white;
+}
+
+.submit {
+  background-color: hsl(25, 97%, 53%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1em 5em;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: white;
+  color: hsl(25, 97%, 53%);
+}
+
+.thank-you {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.thank-you p:nth-child(2) {
+  color: hsl(25, 97%, 63%);
+  background-color: hsl(216, 12%, 34%);
+  padding: 0.5em 1em;
+  border-radius: 50px;
+}
+
+.thank-you p:last-child {
+  color: hsl(216, 12%, 64%);
+}
+
+.hidden {
+  display: none;
+}

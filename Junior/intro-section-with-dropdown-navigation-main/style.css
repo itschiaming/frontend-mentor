@@ -1,0 +1,342 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  font-family: "Epilogue", sans-serif;
+  background-color: hsl(0, 0%, 98%);
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header,
+.main {
+  width: 92.5vw;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.logo {
+  height: 28px;
+  width: 80px;
+}
+
+.menu {
+  width: 35px;
+  height: 20px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.hero img {
+  margin: 0 auto;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  align-items: center;
+}
+
+.main p {
+  color: hsl(0, 0%, 41%);
+}
+
+.main button {
+  padding: 1rem 1.5rem;
+  width: 8rem;
+  border: none;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  font-weight: 700;
+}
+
+.client {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 90vw;
+  margin-top: 2rem;
+}
+
+.client-1,
+.client-3,
+.client-4 {
+  width: 20%;
+}
+
+.client-2 {
+  width: 15%;
+}
+
+.menu-list {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 5rem 2rem;
+  width: min(65vw, 350px);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 4;
+  transition: all 0.3s;
+  color: hsl(0, 0%, 41%);
+}
+
+.menu-list span {
+  cursor: pointer;
+}
+
+.menu-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.features,
+.company {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+}
+
+.features:hover,
+.company:hover,
+.careers:hover,
+.about:hover,
+.features-list li:hover,
+.company-list li:hover {
+  color: hsl(0, 0%, 8%);
+}
+
+.features-list li,
+.company-list {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  margin-left: 1.5em;
+  cursor: pointer;
+}
+
+.features-list,
+.company-list {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  /* transform: translateY(-10px); */
+  transition: opacity 0.3s;
+}
+
+input[id="features"]:checked ~ .features,
+input[id="company"]:checked ~ .company {
+  color: hsl(0, 0%, 8%);
+}
+
+input[id="features"]:checked ~ .features > .arrow-down1,
+input[id="company"]:checked ~ .company > .arrow-down2 {
+  transform: rotate(180deg);
+}
+
+input[id="features"],
+input[id="company"] {
+  position: absolute;
+  top: -1000px;
+}
+
+label {
+  cursor: pointer;
+}
+
+input[id="features"]:checked ~ .features-list,
+input[id="company"]:checked ~ .company-list {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  margin-top: 1em;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100px);
+}
+
+.close {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 30px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.arrow-down {
+  height: 10px;
+  width: 10px;
+  transform: translateY(-1px);
+}
+
+.login,
+.register {
+  width: 100%;
+  padding: 1rem 4rem;
+  border-radius: 15px;
+  border: none;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.register {
+  border: 1px black solid;
+}
+
+.register:hover {
+  background-color: black;
+  color: white;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+@media (min-width: 1000px) {
+  .desktop-main-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5rem;
+    align-items: center;
+    width: 80%;
+    margin: 1rem auto;
+  }
+
+  .main {
+    flex-basis: 50%;
+    grid-column: 1/2;
+    text-align: left;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .client {
+    min-width: 100%;
+  }
+
+  .hero {
+    grid-column: 2/3;
+    flex: 1;
+  }
+
+  .menu,
+  .close {
+    display: none;
+  }
+
+  .desktop-header-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    width: 92.5vw;
+    margin: 0 auto;
+    margin-top: 2em;
+  }
+
+  .menu-list {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    position: static;
+    background-color: transparent;
+    gap: 2rem;
+    flex-basis: 90%;
+    padding: 0;
+  }
+
+  .menu-list > ul {
+    flex-direction: row;
+  }
+
+  .menu-list-features,
+  .menu-list-company {
+    position: relative;
+  }
+
+  .features-list li,
+  .company-list {
+    margin-left: 0;
+  }
+  input[id="features"]:checked ~ .features-list,
+  input[id="company"]:checked ~ .company-list {
+    position: absolute;
+    background-color: white;
+    padding: 1.5em;
+    border-radius: 10px;
+  }
+
+  input[id="features"]:checked ~ .features-list {
+    left: -40px;
+  }
+
+  input[id="company"]:checked ~ .company-list {
+    width: 150px;
+  }
+
+  .header {
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: flex-start;
+    flex-basis: 10%;
+  }
+
+  .main,
+  .header {
+    padding-top: 0;
+  }
+
+  .button {
+    display: flex;
+  }
+
+  .button button {
+    padding: 1em 2em;
+  }
+}

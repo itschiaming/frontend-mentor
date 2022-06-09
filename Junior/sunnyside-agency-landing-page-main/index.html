@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Sunnyside agency landing page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <img src="./images/logo.svg" alt="logo" class="logo" />
+        <div class="menu-container">
+          <div class="menu-list-mobile">
+            <span>About</span>
+            <span>Services</span>
+            <span>Project</span>
+            <span>CONTACT</span>
+          </div>
+          <div class="menu-list-desktop hidden">
+            <span>About</span>
+            <span>Services</span>
+            <span>Project</span>
+            <span>CONTACT</span>
+          </div>
+          <img
+            src="./images/icon-hamburger.svg"
+            class="menu-icon"
+            onclick="toggleMenu()"
+          />
+        </div>
+      </div>
+      <div class="hero">
+        <h1>we are <br />creatives</h1>
+        <img src="./images/icon-arrow-down.svg" />
+      </div>
+    </header>
+    <section class="feature">
+      <div class="feature__1">
+        <div class="feature__1-text">
+          <h2>Transform your brand</h2>
+          <p>
+            We are creatives We are a full-service creative agency specializing
+            in helping brands grow fast. Engage your clients through compelling
+            visuals that do most of the marketing for you.
+          </p>
+          <p>Learn more</p>
+        </div>
+        <div class="feature__1-img">
+          <picture>
+            <source
+              srcset="./images/desktop/image-transform.jpg"
+              media="(min-width:750px)"
+            />
+            <img src="./images/mobile/image-transform.jpg" />
+          </picture>
+        </div>
+      </div>
+      <div class="feature__2">
+        <div class="feature__2-img">
+          <picture>
+            <source
+              srcset="./images/desktop/image-stand-out.jpg"
+              media="(min-width:750px)"
+            />
+            <img src="./images/mobile/image-stand-out.jpg" />
+          </picture>
+        </div>
+        <div class="feature__2-text">
+          <h2>Stand out to the right audience</h2>
+          <p>
+            Using a collaborative formula of designers, researchers,
+            photographers, videographers, and copywriters, we’ll build and
+            extend your brand in digital places.
+          </p>
+          <p>Learn more</p>
+        </div>
+      </div>
+      <div class="feature__bottom">
+        <div class="feature__3">
+          <h2>Graphic design</h2>
+          <p>
+            Great design makes you memorable. We deliver artwork that
+            underscores your brand message and captures potential clients’
+            attention.
+          </p>
+        </div>
+        <div class="feature__4">
+          <h2>Photography</h2>
+          <p>
+            Increase your credibility by getting the most stunning, high-quality
+            photos that improve your business image.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="testimonials">
+      <h4>client testimonials</h4>
+      <div class="testimonials__1">
+        <img src="./images/image-emily.jpg" />
+        <p>
+          We put our trust in Sunnyside and they delivered, making sure our
+          needs were met and deadlines were always hit.
+        </p>
+        <p>Emily R.</p>
+        <p>Marketing Director</p>
+      </div>
+      <div class="testimonials__2">
+        <img src="./images/image-thomas.jpg" />
+        <p>
+          Sunnyside’s enthusiasm coupled with their keen interest in our brand’s
+          success made it a satisfying and enjoyable experience.
+        </p>
+        <p>Thomas S.</p>
+        <p>Chief Operating Officer</p>
+      </div>
+      <div class="testimonials__3">
+        <img src="./images/image-jennie.jpg" />
+        <p>
+          Incredible end result! Our sales increased over 400% when we worked
+          with Sunnyside. Highly recommended!
+        </p>
+        <p>Jennie F.</p>
+        <p>Business Owner</p>
+      </div>
+    </section>
+    <section class="gallary">
+      <picture>
+        <source
+          srcset="./images/desktop/image-gallery-milkbottles.jpg"
+          media="(min-width:750px)"
+        />
+        <img src="./images/mobile/image-gallery-milkbottles.jpg" />
+      </picture>
+      <picture>
+        <source
+          srcset="./images/desktop/image-gallery-orange.jpg"
+          media="(min-width:750px)"
+        />
+        <img src="./images/mobile/image-gallery-orange.jpg" />
+      </picture>
+      <picture>
+        <source
+          srcset="./images/desktop/image-gallery-cone.jpg"
+          media="(min-width:750px)"
+        />
+        <img src="./images/mobile/image-gallery-cone.jpg" />
+      </picture>
+      <picture>
+        <source
+          srcset="./images/desktop/image-gallery-sugarcubes.jpg"
+          media="(min-width:750px)"
+        />
+        <img src="./images/mobile/image-gallery-sugar-cubes.jpg" />
+      </picture>
+    </section>
+    <footer class="footer">
+      <div class="footer__img">
+        <img src="./images/logo.svg" class="footer__logo" />
+      </div>
+      <div class="footer__link">
+        <span>About</span>
+        <span>Services</span>
+        <span>Projects</span>
+      </div>
+      <div class="footer__social">
+        <img src="./images/icon-facebook.svg" />
+        <img src="./images/icon-instagram.svg" />
+        <img src="./images/icon-twitter.svg" />
+        <img src="./images/icon-pinterest.svg" />
+      </div>
+    </footer>
+  </body>
+  <script>
+    const munuList = document.querySelector(".menu-list-mobile");
+    const toggleMenu = () => {
+      munuList.classList.toggle("visible");
+    };
+  </script>
+</html>

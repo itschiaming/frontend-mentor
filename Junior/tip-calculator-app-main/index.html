@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <h3>SPLI<br />TTER</h3>
+      <main class="main">
+        <div class="bill">
+          <label for="bill">Bill</label><br />
+          <input id="bill" name="bill" placeholder="$" class="bill-input" />
+        </div>
+        <div class="select-tip">
+          <label>Select Tip %</label><br />
+          <div class="tip-list">
+            <button class="tip-button tip-active">5%</button>
+            <button class="tip-button">10%</button>
+            <button class="tip-button">15%</button>
+            <button class="tip-button">25%</button>
+            <button class="tip-button">50%</button>
+            <button class="tip-button">Custom</button>
+          </div>
+        </div>
+        <div class="number-of-people">
+          <label for="people">Number of People</label><br />
+          <input id="people" name="people" class="people" />
+        </div>
+        <div class="summary">
+          <div>
+            <div class="tip-amount">
+              <span
+                >Tip Amount<br /><span class="perPerson">/ person</span>
+              </span>
+              <span class="tip-per-person">$4.27</span>
+            </div>
+            <div class="total">
+              <span>Total<br /><span class="perPerson">/ person</span></span>
+              <span class="total-per-person">$32.79</span>
+            </div>
+          </div>
+          <button class="reset">RESET</button>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script>
+    let billTotal = 0,
+      peopleTotal = 0,
+      selectTip = 0;
+    const bill = document.querySelector(".bill-input");
+    const people = document.querySelector(".people");
+    const tipPercent = document.querySelectorAll(".tip-button");
+    const tipPerPerson = document.querySelector(".tip-per-person");
+    const totalPerPerson = document.querySelector(".total-per-person");
+    const reset = document.querySelector(".reset");
+    const tipButton = document.querySelectorAll(".tip-button");
+
+    bill.addEventListener("change", (e) => {
+      billTotal = e.target.value;
+      calculate();
+    });
+
+    people.addEventListener("change", (e) => {
+      peopleTotal = e.target.value;
+      calculate();
+    });
+
+    tipPercent.forEach((tip) =>
+      tip.addEventListener("click", () => {
+        selectTip = tip.textContent.slice(0, tip.textContent.length - 1);
+        calculate();
+      })
+    );
+
+    reset.addEventListener("click", () => {
+      tipPerPerson.textContent = 0;
+      totalPerPerson.textContent = 0;
+      bill.value = 0;
+      people.value = 0;
+      tipPercent.value = 0;
+    });
+
+    function calculate() {
+      if (billTotal > 0 && peopleTotal > 0 && selectTip > 0) {
+        let totalTip = (billTotal * selectTip) / 100 / peopleTotal;
+        let totalBill = billTotal / peopleTotal;
+        console.log(totalTip, totalBill);
+        tipPerPerson.textContent = totalTip;
+        totalPerPerson.textContent = totalBill;
+      }
+    }
+
+    tipButton.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("tip-active");
+        console.log("active");
+      });
+    });
+  </script>
+</html>

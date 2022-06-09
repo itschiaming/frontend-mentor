@@ -1,0 +1,149 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  background-color: hsl(225, 100%, 94%);
+  overflow-y: hidden;
+}
+
+.card {
+  width: min(360px, 90vw);
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-share {
+  border-radius: 10px;
+}
+
+.card > img {
+  border-radius: 10px 10px 0 0;
+}
+
+.desc {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.avatar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.avatar-hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.share {
+  background-color: hsl(210, 46%, 95%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.share__links {
+  background-color: hsl(217, 19%, 35%);
+  padding: 2em 3em;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25em;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100px);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.share__links-visible {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.share__links > p {
+  letter-spacing: 5px;
+  color: hsl(217, 19%, 65%);
+}
+
+.share__links img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.share__links > .share {
+  margin-left: auto;
+  background-color: hsl(217, 19%, 65%);
+  filter: invert(99%) sepia(100%) saturate(21%) hue-rotate(92deg)
+    brightness(156%) contrast(100%);
+}
+
+@media (min-width: 1000px) {
+  .card > img {
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .card {
+    width: 800px;
+    display: flex;
+    border-radius: 10px 0 0 10px;
+    position: relative;
+  }
+
+  .share__links {
+    border-radius: 10px;
+    padding: 1em 1.5em;
+    justify-content: space-between;
+  }
+
+  .share__links-visible {
+    bottom: 30%;
+    right: 2%;
+    position: absolute;
+  }
+
+  .avatar-hidden {
+    opacity: 1;
+    visibility: visible;
+    position: static;
+  }
+
+  .share__links-visible .detail__share {
+    display: none;
+  }
+}

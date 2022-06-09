@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
+  max-width: 350px;
+  margin: 2rem auto;
+  background-color: hsl(217, 54%, 11%);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  background-color: hsl(215, 32%, 27%);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 5px 10px 10px rgba(47, 65, 91, 0.5);
+}
+
+.img > img {
+  border-radius: 1rem;
+}
+
+.img {
+  position: relative;
+}
+
+.img::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background: hsl(178, 100%, 50%, 0.5) url("./images/icon-view.svg") no-repeat
+    center;
+  border-radius: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.img:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.container > h3 {
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.container > h3:hover {
+  color: hsl(178, 100%, 50%);
+}
+
+.container > p {
+  color: hsl(215, 51%, 70%);
+}
+
+.desc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: hsl(178, 100%, 50%);
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: hsl(215, 51%, 70%);
+}
+
+hr {
+  color: hsl(215, 51%, 70%);
+  opacity: 0.5;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: hsl(215, 51%, 70%);
+}
+
+.avatar img {
+  max-width: 15%;
+  border: 1px white solid;
+  border-radius: 50%;
+}
+
+.avatar span {
+  color: white;
+  cursor: pointer;
+}
+
+.avatar span:hover {
+  color: hsl(178, 100%, 50%);
+}

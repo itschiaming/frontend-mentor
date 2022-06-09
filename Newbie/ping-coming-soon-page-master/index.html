@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Ping coming soon page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="./images/logo.svg" class="logo" />
+      <div class="heading">
+        <h2>We are launching <span>soon!</span></h2>
+        <p>Subscribe and get notified</p>
+      </div>
+      <div class="input">
+        <input placeholder="Your email address" type="email" oninput="emailChangeHandler(this)"
+        onblur="emailChangeHandler(this)"
+        class="email"/>
+        <p class="error">Please provide a valid email address</p>
+        <button class="notify">Notify Me</button>
+      </div>
+      <img src="./images/illustration-dashboard.png" class="dashboard" />
+      
+    </div>
+    <div class="footer">
+      <div class="social">
+        <ion-icon name="logo-facebook" class="social-icon"></ion-icon>
+        <ion-icon name="logo-twitter" class="social-icon"></ion-icon>
+        <ion-icon name="logo-instagram" class="social-icon"></ion-icon>
+      </div>
+      <p>
+        &copy; Copyright Ping. All rights reserved.
+      </p>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+  <script>
+    const error = document.querySelector('.error');
+    const emailInput = document.querySelector(".email");
+
+    const emailChangeHandler = (e) =>{
+      let email = e.value;
+      let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+
+      if(email.length <= 0) {
+        error.classList.add("visible")
+        emailInput.classList.add("input-error");
+      }else{
+                emailInput.classList.remove("input-error");
+
+        error.classList.remove("visible")
+      }
+
+      if(email.length > 0 && !regex.test(email)){
+                emailInput.classList.add("input-error");
+
+        error.classList.add("visible")
+      }else{
+                emailInput.classList.remove("input-error");
+
+        error.classList.remove("visible")
+      }
+    }
+  </script>
+</html>

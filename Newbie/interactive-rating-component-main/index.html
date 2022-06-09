@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <srcipt defer src="./script.js"></srcipt>
+  </head>
+  <body>
+    <main class="card">
+      <div class="card-wrapper">
+        <div class="card__star">
+          <img src="./images/icon-star.svg" alt="interactive-rating-component" />
+        </div>
+        <div class="card__text">
+          <h2>How did we do?</h2>
+          <p>
+            Please let us know how we did with your support request. All feedback
+            is appreciated to help us improve our offering!
+          </p>
+        </div>
+        <div class="card__rating">
+          <div class="rating-radio-wrapper">
+            <input type="radio" name="rating" id="rating-1" value="1" />
+            <label for="rating-1" class="rating">1</label>
+          </div>
+          <div class="rating-radio-wrapper">
+            <input type="radio" name="rating" id="rating-2" value="2" />
+            <label for="rating-2" class="rating">2</label>
+          </div>
+          <div class="rating-radio-wrapper">
+            <input type="radio" name="rating" id="rating-3" value="3" />
+            <label for="rating-3" class="rating">3</label>
+          </div>
+          <div class="rating-radio-wrapper">
+            <input type="radio" name="rating" id="rating-4" value="4" />
+            <label for="rating-4" class="rating">4</label>
+          </div>
+          <div class="rating-radio-wrapper">
+            <input type="radio" name="rating" id="rating-5" value="5" />
+            <label for="rating-5" class="rating">5</label>
+          </div>
+        </div>
+        <button class="submit" onclick="submitHandler()">submit</button>
+      </div>
+        <div class="thank-you hidden">
+          <img src="./images/illustration-thank-you.svg"/>
+          <p>You selected <span class="selected-rating">4</span> out of 5</p>
+        <h2>Thank you!</h2>
+        <p>
+          We appreciate you taking the time to give a rating. If
+    you ever need more support, don’t hesitate to get in touch!
+        </p>
+    </main>
+  </body>
+  <script>
+    const ratingRadio = document.getElementsByName("rating");
+    const cardWrapper = document.querySelector(".card-wrapper");
+    const thankYou = document.querySelector(".thank-you");
+    const selectedRating = document.querySelector(".selected-rating");
+    let rating = null;
+
+    ratingRadio.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        rating = e.target.value;
+      });
+    });
+
+    const submitHandler = () => {
+      console.log(rating);
+      cardWrapper.classList.add("hidden");
+      selectedRating.textContent = rating;
+      thankYou.classList.remove("hidden");
+    };
+  </script>
+</html>

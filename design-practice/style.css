@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  background-color: wheat;
+  height: 100vh;
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: 10rem;
+  padding: 1rem;
+  margin: auto;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(22, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  overflow: hidden;
+}
+
+.intro {
+  padding: 1rem;
+  background-color: rgb(162, 255, 141);
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  /* transform: rotate(15deg); */
+}
+
+.intro-2 {
+  padding: 1rem;
+  background-color: rgb(255, 145, 145);
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  /* transform: rotate(-5deg); */
+}
+
+.intro-3 {
+  padding: 1rem;
+  background-color: rgb(184, 247, 255);
+  position: absolute;
+  top: 60%;
+  right: 5%;
+  /* transform: rotate(2deg); */
+}
+
+div[class^="grid-"] {
+  height: 10rem;
+  width: 4rem;
+}
+
+@media (max-width: 1000px) {
+  div[class^="grid-"] {
+    height: 100rem;
+  }
+}
