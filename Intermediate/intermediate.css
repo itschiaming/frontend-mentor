@@ -1,0 +1,22 @@
+@import url("../css-reset.css");
+
+.intermediate__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+}
+
+.intermediate__img {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.intermediate__img img {
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.intermediate__img img:hover {
+  transform: scale(1.1);
+}

@@ -1,3 +1,6 @@
+/**********************/
+/* Reset */
+/**********************/
 * {
   padding: 0;
   margin: 0;
@@ -6,6 +9,7 @@
 
 body {
   font-family: "Overpass", sans-serif;
+  font-size: 16px;
   overflow-x: hidden;
 }
 
@@ -21,14 +25,38 @@ img {
       hsl(13, 100%, 72%),
       hsl(353, 100%, 62%)
     ),
-    url("./images/bg-pattern-intro-desktop.svg") no-repeat right bottom /
+    url("./images/bg-pattern-intro-mobile.svg") no-repeat top 50px left /
       contain;
 
-  background-position: center;
-  background-size: cover;
   border-radius: 0 0 0 60px;
   margin-bottom: 5em;
 }
+
+li {
+  list-style: none;
+}
+
+.section-top-text > p,
+.section-mid-text > p,
+.section-bot-text > p {
+  color: hsl(207, 13%, 34%);
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+
+.section-top-img,
+.section-bot-img,
+.section-mid-img {
+  max-width: 30em;
+}
+
+section {
+  margin-bottom: 10em;
+}
+
+/**********************/
+/* Nav Section */
+/**********************/
 
 .nav {
   display: flex;
@@ -57,6 +85,10 @@ img {
   height: 30px;
 }
 
+/**********************/
+/* Hero Section */
+/**********************/
+
 .hero {
   color: white;
   text-align: center;
@@ -74,6 +106,8 @@ img {
 }
 
 .hero__button button {
+  cursor: pointer;
+  font-weight: 600;
   padding: 1em 1.5em;
   border: none;
   border-radius: 30px;
@@ -84,14 +118,29 @@ img {
   color: hsl(353, 100%, 62%);
 }
 
+.hero__button button:first-child:hover {
+  background-color: hsl(355, 100%, 74%);
+  color: white;
+}
+
 .hero__button button:nth-child(2) {
   background-color: transparent;
   border: 1px white solid;
   color: white;
 }
 
+.hero__button button:nth-child(2):hover {
+  background-color: white;
+  color: hsl(353, 100%, 62%);
+}
+
+/**********************/
+/* Section-top */
+/**********************/
+
 .section-top-title {
   text-align: center;
+  margin-bottom: 1.5em;
 }
 
 .section-top {
@@ -114,9 +163,17 @@ img {
   width: 80%;
 }
 
+.section-top-text > h2 {
+  color: hsl(237, 23%, 32%);
+}
+
+/**********************/
+/* Section-mid */
+/**********************/
+
 .section-mid {
   height: 35em;
-  margin-top: 18em;
+  margin-top: 14em;
   background-color: hsl(237, 17%, 31%);
   background-image: url("./images/bg-pattern-circles.svg");
   background-size: contain;
@@ -133,7 +190,14 @@ img {
 
 .section-mid-img {
   position: absolute;
-  top: -45%;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-mid-text > p {
+  color: white;
+  opacity: 0.75;
 }
 
 .section-mid-text {
@@ -141,8 +205,12 @@ img {
   display: flex;
   flex-direction: column;
   gap: 2em;
-  padding-top: 10em;
+  padding-top: 8em;
 }
+
+/**********************/
+/* Section-bot */
+/**********************/
 
 .section-bot {
   display: flex;
@@ -160,8 +228,12 @@ img {
   gap: 1.5em;
 }
 
+/**********************/
+/* Footer*/
+/**********************/
+
 .footer {
-  background-color: hsl(237, 17%, 31%);
+  background-color: hsl(240, 10%, 16%);
   border-radius: 0 60px 0 0;
   display: flex;
   flex-direction: column;
@@ -172,15 +244,36 @@ img {
   padding: 2em 0;
 }
 
+.footer > img {
+  margin: 2em 0;
+}
+
 .footer__list {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  margin-bottom: 1em;
 }
 
-.footer__list > span:first-child {
-  font-weight: 900;
+.footer__list > li:first-child {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.5em;
 }
+
+.footer__list > li {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.footer__list > li:not(:first-child):hover {
+  opacity: 1;
+  transform: scale(1.025);
+}
+
+/**********************/
+/* Modal and Backdrop*/
+/**********************/
 
 .backdrop {
   background-color: rgba(0, 0, 0, 0.2);
@@ -357,16 +450,19 @@ img {
   }
 
   .section-mid {
-    margin-top: 0;
     background-position: left;
+    height: 20em;
+    padding: 0 5em;
   }
 
   .section-mid-img {
     position: static;
+    transform: translateX(0);
   }
 
   .section-mid-text {
     padding-top: 0;
+    text-align: left;
   }
 
   .section-bot {

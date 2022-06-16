@@ -14,6 +14,13 @@ body {
   gap: 0.5em;
 }
 
-.project__list > li:hover {
-  text-decoration: underline;
+.project__list > li > a {
+  padding: 0.25em;
+  transition: all 0.2s ease-in-out;
+}
+
+.project__list > li:hover > a {
+  background-color: black;
+  border-radius: 2px;
+  color: white;
 }

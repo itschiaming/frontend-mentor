@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: calc(0.75em + 1vmin);
+  font-size: calc(0.7em + 0.9vmin);
 }
 
 body {
@@ -12,6 +12,7 @@ body {
   max-width: 1000px;
   min-height: 100vh;
   margin: 5em auto;
+  overflow-x: hidden;
 }
 
 li {
@@ -27,6 +28,7 @@ a {
   text-decoration: none;
 }
 
+a:link,
 a:visited {
   color: #000;
 }
@@ -37,6 +39,10 @@ a:visited {
   padding-bottom: 0.05em;
   font-size: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0);
-  /* opacity: 0.85; */
+  opacity: 0.8;
   cursor: pointer;
+}
+
+.back:hover {
+  opacity: 1;
 }
