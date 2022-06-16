@@ -1,24 +1,26 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
-import { ThemeContext } from "../../App";
+import useDark from "../../hooks/useDark";
 
 const Header = () => {
-  const ctx = useContext(ThemeContext);
-  const toggleDarkMode = ctx.toggleDarkMode;
-  const isDarkMode = ctx.isDarkMode;
+  const { isDarkMode, darkTheme, toggleDarkMode } = useDark();
+  const navigate = useNavigate();
 
   const darkStyle = {
-    color: ctx.theme.dark.foreground,
-    backgroundColor: ctx.theme.dark.elementsBackground,
+    color: darkTheme.color,
+    backgroundColor: darkTheme.elementsBackground,
   };
 
   return (
     <header className={classes.header} style={isDarkMode ? darkStyle : null}>
-      <h3 className={classes.title}>
-        <Link to="/" style={isDarkMode ? darkStyle : null}>
-          Where in the world?
-        </Link>
+      <h3
+        className={classes.title}
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Where in the world?
       </h3>
       <div className={classes.darkModeContainer} onClick={toggleDarkMode}>
         <i className={`fa-regular fa-moon ${classes.darkMode}`}></i>

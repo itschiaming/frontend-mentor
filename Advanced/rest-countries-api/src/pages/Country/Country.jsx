@@ -1,15 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 import { useLocation, Link } from "react-router-dom";
+import useDark from "../../hooks/useDark";
 import classes from "./Country.module.css";
-import { ThemeContext } from "../../App";
 
 const Country = () => {
-  const ctx = useContext(ThemeContext);
-  const isDarkMode = ctx.isDarkMode;
+  const { isDarkMode, darkTheme } = useDark();
 
   const darkStyle = {
-    color: ctx.theme.dark.foreground,
-    backgroundColor: ctx.theme.dark.elementsBackground,
+    color: darkTheme.color,
+    backgroundColor: darkTheme.elementsBackground,
   };
 
   const location = useLocation();
@@ -26,7 +25,7 @@ const Country = () => {
   }
 
   let key = languages[0];
-  let nativeName = country.name.nativeName[key].official;
+  let nativeName = country.name.nativeName[key].common;
 
   return (
     <>
@@ -40,48 +39,60 @@ const Country = () => {
         </Link>
         <div className={classes.detailWrapper}>
           <div className={classes.countryDetailImg}>
-            <img src={country.flags[1]} alt={`${country.name.official} flag`} />
+            <img src={country.flags[1]} alt={`${country.name.common} flag`} />
           </div>
           <div className={classes.countryDetailInfo}>
-            <p className={classes.detailTitle}>{country.name.official}</p>
+            <p className={classes.detailTitle}>{country.name.common}</p>
             <ul className={classes.countryDetailInfoList}>
               <div className={classes.firstPart}>
                 <li>
                   <span className={classes.subtitle}>Native Name: </span>
-                  {nativeName}
+                  <span className={classes.detailText}>{nativeName}</span>
                 </li>
                 <li>
                   <span className={classes.subtitle}>Population: </span>
-                  {country.population}
+                  <span className={classes.detailText}>
+                    {country.population}
+                  </span>
                 </li>
                 <li>
                   <span className={classes.subtitle}>Region: </span>
-                  {country.region}
+                  <span className={classes.detailText}>{country.region}</span>
                 </li>
                 <li>
                   <span className={classes.subtitle}>Sub Region: </span>
-                  {country.subregion}
+                  <span className={classes.detailText}>
+                    {country.subregion}
+                  </span>
                 </li>
                 <li className={classes.capital}>
                   <span className={classes.subtitle}>Capital: </span>
-                  {country.capital}
+                  <span className={classes.detailText}>{country.capital}</span>
                 </li>
               </div>
               <div className={classes.secondPart}>
                 <li>
                   <span className={classes.subtitle}>Top Level Domain: </span>
-                  {country.tld[0]}
+                  <span className={classes.detailText}>{country.tld[0]}</span>
                 </li>
                 <li>
                   <span className={classes.subtitle}>Currencies: </span>
                   {currencies.map((currency, index) => {
-                    return <span key={index}>{currency} </span>;
+                    return (
+                      <span className={classes.detailText} key={index}>
+                        {currency}{" "}
+                      </span>
+                    );
                   })}
                 </li>
                 <li>
                   <span className={classes.subtitle}>Languages: </span>
                   {languages.map((language, index) => {
-                    return <span key={index}>{language} </span>;
+                    return (
+                      <span className={classes.detailText} key={index}>
+                        {language}{" "}
+                      </span>
+                    );
                   })}
                 </li>
               </div>
@@ -90,7 +101,11 @@ const Country = () => {
             <ul className={classes.borderCountries}>
               {country.borders?.map((border, index) => {
                 return (
-                  <li key={index} style={isDarkMode ? darkStyle : null}>
+                  <li
+                    key={index}
+                    style={isDarkMode ? darkStyle : null}
+                    className={classes.detailText}
+                  >
                     {border}
                   </li>
                 );

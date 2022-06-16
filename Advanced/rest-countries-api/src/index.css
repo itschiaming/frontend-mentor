@@ -32,6 +32,7 @@ a:visited {
   color: #000;
 }
 
-.darkBody {
+.darkTheme {
   background-color: hsl(207, 26%, 17%);
+  color: hsl(0, 0%, 100%);
 }

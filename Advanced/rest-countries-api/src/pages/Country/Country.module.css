@@ -68,6 +68,10 @@
   font-weight: 600;
 }
 
+.detailText {
+  opacity: 0.85;
+}
+
 @media (min-width: 800px) {
   .detailWrapper {
     flex-direction: row;

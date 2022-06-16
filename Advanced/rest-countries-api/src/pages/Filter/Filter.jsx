@@ -1,18 +1,16 @@
-import React, { useContext, useState } from "react";
-import { ThemeContext } from "../../App";
+import React, { useState } from "react";
+import useDark from "../../hooks/useDark";
 import classes from "./Filter.module.css";
 
 const Filter = ({ filterHandler, searchHandler }) => {
   const [visible, setVisible] = useState(false);
   const [checked, setChecked] = useState(null);
   const [search, setSearch] = useState(null);
-
-  const ctx = useContext(ThemeContext);
-  const isDarkMode = ctx.isDarkMode;
+  const { isDarkMode, darkTheme } = useDark();
 
   const darkStyle = {
-    color: ctx.theme.dark.foreground,
-    backgroundColor: ctx.theme.dark.elementsBackground,
+    color: darkTheme.color,
+    backgroundColor: darkTheme.elementsBackground,
   };
 
   const checkedHandler = (e) => {

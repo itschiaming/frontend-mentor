@@ -27,7 +27,7 @@
 .searchInput {
   width: 100%;
   border: none;
-  font-weight: 300;
+  font-weight: 400;
   opacity: 0.5;
   outline: none;
   background-color: transparent;
@@ -48,6 +48,7 @@
 }
 
 .filterBtn {
+  font-weight: 300;
   width: 100%;
   opacity: 0.8;
   border: none;

@@ -1,21 +1,19 @@
-import React, { useEffect, useState, useContext } from "react";
-import { ThemeContext } from "../../App";
+import React, { useEffect, useState } from "react";
 import classes from "./Home.module.css";
 import Filter from "../Filter/Filter";
 import { Link } from "react-router-dom";
+import useDark from "../../hooks/useDark";
 
 const Home = () => {
   let content;
   const [countries, setCountries] = useState([]);
   const [filterItems, setFilterItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  const ctx = useContext(ThemeContext);
-  const isDarkMode = ctx.isDarkMode;
+  const { isDarkMode, darkTheme } = useDark();
 
   const darkStyle = {
-    color: ctx.theme.dark.foreground,
-    backgroundColor: ctx.theme.dark.elementsBackground,
+    color: darkTheme.color,
+    backgroundColor: darkTheme.elementsBackground,
   };
 
   useEffect(() => {
@@ -36,21 +34,21 @@ const Home = () => {
         return country.region.toLowerCase() === checked;
       })
       .map((country) => {
-        let id = country.name.official.replaceAll(" ", "-");
+        let id = country.name.common.replaceAll(" ", "-");
         return (
           <Link to={`${id}`} key={id} state={{ country: country }}>
             <li className={classes.country}>
               <div className={classes.countryImg}>
                 <img
                   src={country.flags[1]}
-                  alt={`${country.name.official} flag`}
+                  alt={`${country.name.common} flag`}
                 />
               </div>
               <div
                 className={classes.countryInfo}
                 style={isDarkMode ? darkStyle : null}
               >
-                <h2>{country.name.official}</h2>
+                <h2>{country.name.common}</h2>
                 <ul className={classes.countryInfoList}>
                   <li>Population: {country.population}</li>
                   <li>Region: {country.region}</li>
@@ -67,24 +65,24 @@ const Home = () => {
   const searchHandler = (searched) => {
     const result = countries
       .filter((country) => {
-        return country.name.official.toLowerCase().includes(searched);
+        return country.name.common.toLowerCase().includes(searched);
       })
       .map((country) => {
-        let id = country.name.official.replaceAll(" ", "-");
+        let id = country.name.common.replaceAll(" ", "-");
         return (
           <Link to={`${id}`} key={id} state={{ country: country }}>
             <li className={classes.country}>
               <div className={classes.countryImg}>
                 <img
                   src={country.flags[1]}
-                  alt={`${country.name.official} flag`}
+                  alt={`${country.name.common} flag`}
                 />
               </div>
               <div
                 className={classes.countryInfo}
                 style={isDarkMode ? darkStyle : null}
               >
-                <h2>{country.name.official}</h2>
+                <h2>{country.name.common}</h2>
                 <ul className={classes.countryInfoList}>
                   <li>Population: {country.population}</li>
                   <li>Region: {country.region}</li>
@@ -99,18 +97,18 @@ const Home = () => {
   };
 
   content = countries.map((country) => {
-    let id = country.name.official.replaceAll(" ", "-");
+    let id = country.name.common.replaceAll(" ", "-");
     return (
       <Link to={`${id}`} key={id} state={{ country: country }}>
         <li className={classes.country}>
           <div className={classes.countryImg}>
-            <img src={country.flags[1]} alt={`${country.name.official} flag`} />
+            <img src={country.flags[1]} alt={`${country.name.common} flag`} />
           </div>
           <div
             className={classes.countryInfo}
             style={isDarkMode ? darkStyle : null}
           >
-            <h2>{country.name.official}</h2>
+            <h2>{country.name.common}</h2>
             <ul className={classes.countryInfoList}>
               <li>Population: {country.population}</li>
               <li>Region: {country.region}</li>
