@@ -48,6 +48,18 @@ input {
   font-family: "Space Mono", monospace;
 }
 
+.bill-input {
+  background-image: url("./images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: left 1em center;
+}
+
+.people-input {
+  background-image: url("./images/icon-person.svg");
+  background-repeat: no-repeat;
+  background-position: left 1em center;
+}
+
 .tip-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

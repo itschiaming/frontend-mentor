@@ -1,0 +1,139 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: calc(0.9em + 1vmin);
+  width: 90vw;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background-image: url("./images/pattern-curve.svg");
+  background-repeat: no-repeat;
+  background-position: center bottom -50px;
+  background-size: 100% 15%;
+}
+
+@media (min-width: 1000px) {
+  body {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-size: 100% 20%;
+    gap: 0em;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.img-container {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("./images/pattern-bg.svg");
+  background-repeat: no-repeat;
+  background-position: center top 5px;
+  background-size: contain;
+  position: relative;
+}
+
+.avatar {
+  box-shadow: 10px 20px 30px rgba(0, 0, 0, 0.15);
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  background-color: white;
+  padding: 0.8em;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 2.5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 1000px) {
+  .button-container {
+    transform: translateX(-150%);
+  }
+}
+.button-container > img {
+  cursor: pointer;
+}
+
+.testimonials {
+  background-image: url("./images/pattern-quotes.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 60px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.text {
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  max-width: 500px;
+}
+
+.personal-info > p:first-child {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.personal-info > p:last-child {
+  font-weight: 500;
+  opacity: 0.4;
+  font-size: 1rem;
+}
+
+@media (min-width: 1000px) {
+  .testimonials {
+    transform: translateX(25%);
+    align-items: flex-start;
+  }
+
+  .text {
+    text-align: left;
+  }
+
+  .personal-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+}
+
+/* helper class */
+
+.hidden {
+  opacity: 0;
+  visibility: none;
+  position: absolute;
+  transform: translateX(-9999px);
+}
