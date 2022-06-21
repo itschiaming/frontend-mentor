@@ -28,7 +28,7 @@ img {
 
 body {
   font-family: "Open Sans", sans-serif;
-  font-size: 0.9em + 1vmin;
+  font-size: calc(0.9em + 1vmin);
   font-weight: 400;
   display: grid;
   grid-template-columns: 1fr 1fr;
